@@ -5,10 +5,13 @@
 
 In Python, this code snippet defines a special method called init within a class. This method has a very specific function: to initialize the objects of that class.
 
-**def**: Indicates the beginning of a function definition in Python.
-**__init__**: Is a magic or dunder (double underscore) method that is automatically executed when a new instance of a class is created (that is, when a new object is created).
-**self**: Is a reference to the object that is being created. It is used to access the attributes and methods of the object.
-**x and y**: Are parameters that are passed to the init method when an object is created. These parameters are used to initialize the attributes of the object.
+**def**: *Indicates the beginning of a function definition in Python.*
+
+**__init__**: *Is a magic or dunder (double underscore) method that is automatically executed when a new instance of a class is created (that is, when a new object is created).*
+
+**self**: *Is a reference to the object that is being created. It is used to access the attributes and methods of the object.*
+
+**x and y**: *Are parameters that are passed to the init method when an object is created. These parameters are used to initialize the attributes of the object.*
 
 ```
 import pygame  
