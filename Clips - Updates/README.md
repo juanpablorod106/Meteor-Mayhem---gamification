@@ -1,6 +1,23 @@
 # Meteor-Mayhem---gamification
 ## Test 1 - 12-12-2024
 ### Notes
+```Python
+import pygame
+
+class Cubo:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+        self.ancho = 50
+        self.alto = 50
+        self.velocidad = 10
+        self.color = "red"
+        self.rect = pygame.Rect(self.x, self.y, self.alto, self.alto)
+        
+    def dibujar(self,ventana):
+        pygame.draw.rect(ventana, self.color, self.rect)
+        self.rect = pygame.Rect(self.x, self.y, self.alto, self.alto)
+```
 ![12-12-2024](https://github.com/user-attachments/assets/a01cb102-7d33-42f5-bc45-0bf1c803e04d)
 ## Test 2 - 13-12-2024
 ### Notes
