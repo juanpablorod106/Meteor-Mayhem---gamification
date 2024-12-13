@@ -5,9 +5,9 @@
 En Python, este fragmento de código define un método especial llamado __init__ dentro de una clase. Este método tiene una función muy específica: inicializar los objetos de esa clase.
 
 - **def**: *Indica el inicio de una definición de función en Python.*
-- ** __init__ **: *Es un método mágico o dunder (de double underscore) que se ejecuta automáticamente cuando se crea una nueva instancia de una clase (es decir, cuando se crea un nuevo objeto).*
-- ** self **: *Es una referencia al objeto que se está creando. Se utiliza para acceder a los atributos y métodos del objeto.*
-- ** x y y **: Son parámetros que se pasan al método __init__ cuando se crea un objeto. Estos parámetros se utilizan para inicializar los atributos del objeto.
+- ** __init__ ** : *Es un método mágico o dunder (de double underscore) que se ejecuta automáticamente cuando se crea una nueva instancia de una clase (es decir, cuando se crea un nuevo objeto).*
+- ** self ** : *Es una referencia al objeto que se está creando. Se utiliza para acceder a los atributos y métodos del objeto.*
+- ** x y y ** : Son parámetros que se pasan al método __init__ cuando se crea un objeto. Estos parámetros se utilizan para inicializar los atributos del objeto.
     
 ```Python
 import pygame 
