@@ -1,19 +1,20 @@
 # Meteor-Mayhem---gamification
 ## Test 1 - 12-12-2024
 ### Notes
-#### Marco Teorico
-En Python, este fragmento de código define un método especial llamado __init__ dentro de una clase. Este método tiene una función muy específica: inicializar los objetos de esa clase.
+#### Theoretical Framework
 
-- **def**: *Indica el inicio de una definición de función en Python.*
-- **__init__** : *Es un método mágico o dunder (de double underscore) que se ejecuta automáticamente cuando se crea una nueva instancia de una clase (es decir, cuando se crea un nuevo objeto).*
-- **self** : *Es una referencia al objeto que se está creando. Se utiliza para acceder a los atributos y métodos del objeto.*
-- **x y y** : Son parámetros que se pasan al método __init__ cuando se crea un objeto. Estos parámetros se utilizan para inicializar los atributos del objeto.
-    
-```Python
-import pygame 
-    #Se importa la libreria Pygame para importar los objetos del videojuego.
-    #En este caso este objeto sera la nave espacial y tendra como parametros x, y. Estos pertenenecen al argumento del
-    # metodo/funcion __init__.
+In Python, this code snippet defines a special method called init within a class. This method has a very specific function: to initialize the objects of that class.
+
+**def**: Indicates the beginning of a function definition in Python.
+**__init__**: Is a magic or dunder (double underscore) method that is automatically executed when a new instance of a class is created (that is, when a new object is created).
+**self**: Is a reference to the object that is being created. It is used to access the attributes and methods of the object.
+**x and y**: Are parameters that are passed to the init method when an object is created. These parameters are used to initialize the attributes of the object.
+
+```
+import pygame  
+    # The Pygame library is imported to import the video game objects. 
+    # In this case this object will be the spaceship and will have x, y as parameters. These belong to the argument of the 
+    # method/function __init__.
 
 class Cubo:
     def __init__(self,x,y):
