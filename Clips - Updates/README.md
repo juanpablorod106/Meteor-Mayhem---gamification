@@ -3,7 +3,7 @@
 ### Notes
 #### Theoretical Framework
 
-In Python, this code snippet defines a special method called __init__ within a class. This method has a very specific function: to initialize the objects of that class.
+In Python, this code snippet defines a special method called __init __ within a class. This method has a very specific function: to initialize the objects of that class.
 
 **def**: *Indicates the beginning of a function definition in Python.*
 
