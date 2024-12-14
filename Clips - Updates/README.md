@@ -33,7 +33,7 @@ class Cubo:
         pygame.draw.rect(ventana, self.color, self.rect)
         self.rect = pygame.Rect(self.x, self.y, self.alto, self.alto)
 ```
-###Class Diagram Example in Python
+### Class Diagram Example in Python
 
 ![Diagram of my class called  Cubo](https://github.com/user-attachments/assets/0691da04-a85b-43fd-a180-1b7b84d3b9c8)
 
