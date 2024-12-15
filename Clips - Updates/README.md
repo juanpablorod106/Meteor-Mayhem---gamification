@@ -89,5 +89,5 @@ VENTANA.blit(texto_vida, (1120,10))          #8.4
 VENTANA.blit(texto_nombre, (1000/2,10))
 VENTANA.blit(texto_puntos, (10,10))
 ``` 
-### Grafico
+### Grafico:
 ![15-12-2024](https://github.com/user-attachments/assets/845295d7-0cf2-499e-945a-3079d8a27325)
