@@ -47,9 +47,9 @@ class Cubo:
 ## Test 3 - 14-12-2024
 ### Notes
 
-#### 7.1 Funcion del modulo de rectangulo del modulo pygame se encargade reconocer choques de instancias de objetos. Con este condicional podemos realizar diversas acciones.
+#### 7.1 [colliderect] es una Función del modulo de rectángulo del modulo pygame se encarga de reconocer choques de instancias de objetos. Con este condicional podemos realizar diversas acciones.
 
-#### 7.2 Accede al bucle de enemigos y elimina al enemigo en caso de que SI haya una collision.
+#### 7.2 Accede al bucle de enemigos y elimina al enemigo en caso de que SI halla una colisión.
 
 ```
 if pygame.Rect.colliderect(cubo.rect, enemigo.rect):
@@ -59,7 +59,7 @@ print (f"TE HAN QUITADO UNA VIDA, TE QUEDAN {vida} vidas")
 # Siguiente Linea de codigo:
 enemigos.remove(enemigo)                                    #7.2
 ```
-#### 7.3 El bluce del juego funcionara SI tenemos mas de 0 vidas
+#### 7.3 El bucle del juego funcionara SI tenemos mas de 0 vidas
 ```
 while jugando and vida > 0:
 ```
