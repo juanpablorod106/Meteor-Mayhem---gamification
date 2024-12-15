@@ -65,3 +65,29 @@ while jugando and vida > 0:
 ```
 ### Grafico:
 ![14-12-2024](https://github.com/user-attachments/assets/9c870273-4b31-4620-b2a0-728141bfdafe)
+
+## Test 4 - 15-12-2024
+### Notes
+
+#### 8.1 Importante para el proceso siguiente
+```
+pygame.init()   #8.1
+```
+#### 8.2 Se crea la constante de fuente con el modulo [font] de Pygame que nos permitira por medio de una funcion con dos parametros tienen como argumento el nombre de la fuente y su numero.
+```
+FUENTE = pygame.font.SysFont("Blox BRK", 48)  #8.2
+```
+#### 8.3 Almacenar en una variable para renderizar texto con nuestra conestante y el metodo render.
+```
+texto_nombre = FUENTE.render("Meteor Mayhem", True, "White")
+texto_vida = FUENTE.render(f"LIFE {vida}", True, "White")      #8.3
+texto_puntos = FUENTE.render(f"PUNTOS {puntos}", True, "White")
+```
+#### 8.4 [blit] sirve como funcion que mostrara en la ventana del juego la instacia del texto, como argumento tiene la instancia de vida y las coordenadas de posicion del texto en la pantalla. 
+```
+VENTANA.blit(texto_vida, (1120,10))          #8.4
+VENTANA.blit(texto_nombre, (1000/2,10))
+VENTANA.blit(texto_puntos, (10,10))
+``` 
+### Grafico
+![15-12-2024](https://github.com/user-attachments/assets/845295d7-0cf2-499e-945a-3079d8a27325)

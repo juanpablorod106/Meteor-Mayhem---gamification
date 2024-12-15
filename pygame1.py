@@ -1,5 +1,4 @@
 import pygame
-import pygame.display
 from personaje import Cubo 
 from enemigo import Enemigos
 #Para instalar la libreria Pygame
@@ -7,10 +6,13 @@ from enemigo import Enemigos
 
 import random
 
+pygame.init()
+
 ANCHO = 1280
 ALTO = 640
 VENTANA = pygame.display.set_mode([ANCHO,ALTO], pygame.FULLSCREEN) #pygame.FULLSCREEN dentro del segundo parametro de la funcion set_mode que se obtiene mediante los modulos pygame.display 
 FPS = 60
+FUENTE = pygame.font.SysFont("Blox BRK", 48) 
 pygame.display.set_caption('Meteor Mayhem')
 
 jugando = True
@@ -23,7 +25,7 @@ tiempo_entre_enemigos = 500
 vida = 5
 puntos = 0
 
-cubo = Cubo(ANCHO/2,ALTO-75)
+cubo = Cubo(ANCHO/2,ALTO-95)
 
 enemigos = []
 
@@ -40,7 +42,7 @@ def gestionar_teclas(teclas):   # 3.2 Funcion que gestiona el teclado que cambia
     if teclas[pygame.K_a]:
         cubo.x -= cubo.velocidad   
 
-while jugando and vida > 0: #7.3 El bluce del juego funcionara SI tenemos mas de 0 vidas
+while jugando and vida > 0:
 
     tiempo_pasado += reloj.tick(FPS)
     """print(tiempo_pasado)
@@ -56,6 +58,11 @@ while jugando and vida > 0: #7.3 El bluce del juego funcionara SI tenemos mas de
     teclas = pygame.key.get_pressed()  # 3.1 Variable que almacena el modulo principal de la libreria que accede a    
     gestionar_teclas(teclas)           #otro modulo de la misma para luego desde ese modulo acceder a la funcion get_pressed.
                                        #Esta variable tiene como objetivo servir como argumento de una funcion que va a gestionar las teclas de los objetos 
+   
+    texto_nombre = FUENTE.render("Meteor Mayhem", True, "White")
+    texto_vida = FUENTE.render(f"LIFE {vida}", True, "White")
+    texto_puntos = FUENTE.render(f"PUNTOS {puntos}", True, "White")
+
     for evento in eventos:
         if evento.type == pygame.QUIT:
             jugando = False
@@ -67,12 +74,19 @@ while jugando and vida > 0: #7.3 El bluce del juego funcionara SI tenemos mas de
         enemigo.dibujar(VENTANA)
         enemigo.movimiento()
 
-        if pygame.Rect.colliderect(cubo.rect, enemigo.rect): #7.1 Funcion del modulo de rectangulo del modulo pygame se encarga  
-            print ("COLLISION!!!")                           #de reconocer choques de instancias de objetos. Con este condicional podemos realizar diversas acciones.
+        if pygame.Rect.colliderect(cubo.rect, enemigo.rect):   
+            print ("COLLISION!!!")
             vida -= 1                        
             print (f"TE HAN QUITADO UNA VIDA, TE QUEDAN {vida} vidas")
             #quit() para cerrar
-            enemigos.remove(enemigo) #7.2 Accede al bucle de enemigos y elimina al enemigo en caso de que SI haya una collision
+            enemigos.remove(enemigo) 
+
+
+
+    VENTANA.blit(texto_vida, (1120,10))
+    VENTANA.blit(texto_nombre, (1000/2,10))
+    VENTANA.blit(texto_puntos, (10,10))  
+
 
     pygame.display.update()
 
