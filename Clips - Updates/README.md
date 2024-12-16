@@ -91,6 +91,7 @@ VENTANA.blit(texto_puntos, (10,10))
 ``` 
 ### Grafico:
 ![15-12-2024](https://github.com/user-attachments/assets/845295d7-0cf2-499e-945a-3079d8a27325)
+<<<<<<< HEAD
 
 ## Test 5 - 16-12-2024
 ### Notes
@@ -175,3 +176,5 @@ for bala in balas:          #10.5.1
 ```
 ### Grafico:
 ![16-12-2024](https://github.com/user-attachments/assets/02156275-9541-4f95-8370-03bd577eb3be)
+=======
+>>>>>>> origin/main
