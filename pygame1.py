@@ -1,6 +1,7 @@
 import pygame
 from personaje import Cubo 
 from enemigo import Enemigos
+from balas import Bala
 #Para instalar la libreria Pygame
 #sudo apt install python3-pygame
 
@@ -29,18 +30,26 @@ cubo = Cubo(ANCHO/2,ALTO-95)
 
 enemigos = []
 
+balas = []
+
 enemigos.append(Enemigos(ANCHO/2, 100))
 
+def crear_bala(): 
+    balas.append(Bala(cubo.rect.centerx,cubo.rect.centery)) 
 
-def gestionar_teclas(teclas):   # 3.2 Funcion que gestiona el teclado que cambiara la posicion del eje x y y de la instancia Cubo
+def gestionar_teclas(teclas):   #3.2 Funcion que gestiona el teclado que cambiara la posicion del eje x y y de la instancia Cubo.
     #if teclas[pygame.K_w]:
     #    cubo.y -= cubo.velocidad
-    #if teclas[pygame.K_s]:                    
+    #if teclas[pygame.K_s]:
     #    cubo.y += cubo.velocidad
     if teclas[pygame.K_d]:
         cubo.x += cubo.velocidad
     if teclas[pygame.K_a]:
-        cubo.x -= cubo.velocidad   
+        cubo.x -= cubo.velocidad
+    if teclas[pygame.K_SPACE]:
+        crear_bala()
+    if teclas[pygame.K_ESCAPE]:
+        exit()
 
 while jugando and vida > 0:
 
@@ -81,7 +90,13 @@ while jugando and vida > 0:
             #quit() para cerrar
             enemigos.remove(enemigo) 
 
+        if enemigo.y + enemigo.alto > ALTO:
+            puntos += 1
+            enemigos.remove(enemigo)
 
+    for bala in balas:
+        bala.dibujar(VENTANA)
+        bala.movimiento()
 
     VENTANA.blit(texto_vida, (1120,10))
     VENTANA.blit(texto_nombre, (1000/2,10))

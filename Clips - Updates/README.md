@@ -89,5 +89,89 @@ VENTANA.blit(texto_vida, (1120,10))          #8.4
 VENTANA.blit(texto_nombre, (1000/2,10))
 VENTANA.blit(texto_puntos, (10,10))
 ``` 
-### Grafico
+### Grafico:
 ![15-12-2024](https://github.com/user-attachments/assets/845295d7-0cf2-499e-945a-3079d8a27325)
+
+## Test 5 - 16-12-2024
+### Notes
+
+Para darle logica a la suma de puntos debemos crear una condicional que incluya la variable "puntos" donde
+los puntos suban bajo alguna logica. En este periodo se implemento que al momento de salir enemigos de la ventana se sube un punto.
+
+#### 9.1 Si la posicion del enemigo es mayor al alto de la ventana.
+##### 9.1.1 nos suma puntos.
+##### 9.1.2 En lo que se elmine/desaparezca un enemigo nos suma un punto.
+
+```
+if enemigo.y + enemigo.alto > ALTO: #9.1
+    puntos += 1   #9.1.1
+    enemigos.remove(enemigo) #9.1.2
+```
+
+### 10 - Creacion de clases de balas.
+Crearemos un objeto/clase que sera la bala, mas pequena, lenta y de otro color a los otros objetos.
+Esta objeto se disparara desde nuestro cubo.
+
+Para disparar este objeto, necesitaremos:
+- 10.1 Clase de las balas;
+- 10.2 Una lista de balas;
+- 10.3 Una funcion para crearlas/dispararlas;
+- 10.4 Darle una tecla a las balas para ser disparadas;
+- 10.5 Un bucle donde dibujarlas en la ventana del juego.
+
+### 10.1 Clase de las balas
+
+#### 10.1.1 Se crea el objeto, la clase bala, con los argumentos de posicion x,y, y el resto de atributos (self).
+#### 10.1.2 El ancho y el alto de las balas es mas pequeno que los anteriores objetos.
+#### 10.1.3 Se resta el eje vertical (self.y) con la velocidad para que la bala vaya hacia arriba.
+
+```
+class Bala:                       #10.1.1
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+        self.ancho = 20
+        self.alto = 20            #10.1.2
+        self.velocidad = 10
+        self.color = "white"
+        self.rect = pygame.Rect(self.x, self.y, self.alto, self.alto)
+        
+    def dibujar(self,ventana):
+        pygame.draw.rect(ventana, self.color, self.rect)
+        self.rect = pygame.Rect(self.x, self.y, self.alto, self.alto)
+
+    def movimiento(self):
+        self.y -= self.velocidad  #10.1.3
+```
+### 10.2 Lista de balas
+
+#### 10.2.1 Creamos una variable que contenga una lista de balas.
+```
+balas = [] #10.2.1
+```
+### 10.3 Una funcion para crearlas;
+
+#### 10.3.1 Creamos una funcion para disparar balas.
+#### 10.3.2 Nuestra lista de balas usara el metodo append para almacenar el argumento de posicion de la clase bala que en este caso sera el centro de los dos ejes de posicion del cubo.
+```
+def crear_bala():                                               #10.3.1
+    balas.append(Bala(cubo.rect.centerx,cubo.rect.centery))     #10.3.2
+```
+### 10.4 Darle una tecla a las balas para ser disparadas;
+
+#### 10.4.1 Asignamos la tecla espacio para ejecutar nuestra funcion [crear_bala]. Esto dentro de nuestra funcion de gestionar teclas con el parametro teclas [gestionar_teclas(teclas)].
+```
+if teclas[pygame.K_SPACE]:
+crear_bala()                    #10.4.1
+```
+### 10.5 Un bucle donde dibujarlas en la ventana del juego.
+
+#### 10.5.1 Creamos un bucle para generar las balas.
+#### 10.5.2 Y las dibujamos en la ventana del juego.
+```
+for bala in balas:          #10.5.1
+    bala.dibujar(VENTANA)   #10.5.2
+    bala.movimiento()
+```
+### Grafico:
+![16-12-2024](https://github.com/user-attachments/assets/02156275-9541-4f95-8370-03bd577eb3be)
