@@ -143,6 +143,9 @@ class Bala:                       #10.1.1
     def movimiento(self):
         self.y -= self.velocidad  #10.1.3
 ```
+### Class Diagram Example in Python
+![Captura desde 2024-12-16 16-31-37](https://github.com/user-attachments/assets/c5a90521-9cb8-4bc7-8272-9f0f84250025)
+
 ### 10.2 Lista de balas
 
 #### 10.2.1 Creamos una variable que contenga una lista de balas.
