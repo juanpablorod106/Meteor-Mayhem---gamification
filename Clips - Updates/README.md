@@ -202,4 +202,4 @@ for bala in balas:          #10.5.1
             puntos += 1
 ```
 ### Grafico:
-![20-12-2024](https://github.com/user-attachments/assets/951d1e3d-d9f5-4b2a-8fb2-a7c4410644bc)
+https://github.com/user-attachments/assets/384e7d4a-29f2-4f06-b068-d629e3a8dd1c
