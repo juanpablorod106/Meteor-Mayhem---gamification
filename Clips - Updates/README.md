@@ -178,7 +178,6 @@ for bala in balas:          #10.5.1
 ```
 ### Grafico:
 ![16-12-2024](https://github.com/user-attachments/assets/02156275-9541-4f95-8370-03bd577eb3be)
-<<<<<<< HEAD
 
 ## Test 6 - 20-12-2024
 ### Notes
@@ -203,6 +202,4 @@ for bala in balas:          #10.5.1
             puntos += 1
 ```
 ### Grafico:
-![20-12-2024](https://github.com/user-attachments/assets/39b9e38a-87a8-4f8a-805c-4b552ff16476)
-=======
->>>>>>> origin/main
+![20-12-2024](https://github.com/user-attachments/assets/19580718-8675-43af-8a23-ab58efce4e9c)
