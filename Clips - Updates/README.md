@@ -49,7 +49,7 @@ class Cubo:
 
 #### 7.1 [colliderect] es una Función del modulo de rectángulo del modulo pygame se encarga de reconocer choques de instancias de objetos. Con este condicional podemos realizar diversas acciones.
 
-#### 7.2 Accede al bucle de enemigos y elimina al enemigo en caso de que SI halla una colisión.
+#### 7.2 Accede al bucle de enemigos y elimina al enemigo en caso de que SI haya una colisión.
 
 ```
 if pygame.Rect.colliderect(cubo.rect, enemigo.rect):
@@ -143,6 +143,9 @@ class Bala:                       #10.1.1
     def movimiento(self):
         self.y -= self.velocidad  #10.1.3
 ```
+### Class Diagram Example in Python
+![Captura desde 2024-12-16 16-31-37](https://github.com/user-attachments/assets/c5a90521-9cb8-4bc7-8272-9f0f84250025)
+
 ### 10.2 Lista de balas
 
 #### 10.2.1 Creamos una variable que contenga una lista de balas.
@@ -175,6 +178,7 @@ for bala in balas:          #10.5.1
 ```
 ### Grafico:
 ![16-12-2024](https://github.com/user-attachments/assets/02156275-9541-4f95-8370-03bd577eb3be)
+<<<<<<< HEAD
 
 ## Test 6 - 20-12-2024
 ### Notes
@@ -200,3 +204,5 @@ for bala in balas:          #10.5.1
 ```
 ### Grafico:
 ![20-12-2024](https://github.com/user-attachments/assets/39b9e38a-87a8-4f8a-805c-4b552ff16476)
+=======
+>>>>>>> origin/main
