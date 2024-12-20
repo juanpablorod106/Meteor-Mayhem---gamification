@@ -91,7 +91,6 @@ VENTANA.blit(texto_puntos, (10,10))
 ``` 
 ### Grafico:
 ![15-12-2024](https://github.com/user-attachments/assets/845295d7-0cf2-499e-945a-3079d8a27325)
-<<<<<<< HEAD
 
 ## Test 5 - 16-12-2024
 ### Notes
@@ -176,5 +175,28 @@ for bala in balas:          #10.5.1
 ```
 ### Grafico:
 ![16-12-2024](https://github.com/user-attachments/assets/02156275-9541-4f95-8370-03bd577eb3be)
-=======
->>>>>>> origin/main
+
+## Test 6 - 20-12-2024
+### Notes
+
+#### 11.1 Tiempo de recarga de las balas. 
+
+##### 11.1.1 Utilizamos un global para acceder a la variable de ultima bala.
+##### 11.1.2 Si el tiempo de juego menos la ultima bala, es mayor que el tiempo entre milisegundos entonces:
+##### 11.2.3 La ultima bala en esta funcion pasa a valer el numero de milisegundos desde que inicio el juego. 
+```
+    global ultima_bala                                             #11.1.1
+    if pygame.time.get_ticks() - ultima_bala > tiempo_entre_balas: #11.1.2
+        balas.append(Bala(cubo.rect.centerx,cubo.rect.centery)) 
+        ultima_bala = pygame.time.get_ticks()                      #11.1.3    
+```
+#### 11.2 Logica de colision de las balas con los enemigos:
+```
+    for bala in balas:
+        if pygame.Rect.colliderect(bala.rect, enemigo.rect):
+            enemigos.remove(enemigo)
+            balas.remove(bala)
+            puntos += 1
+```
+### Grafico:
+![20-12-2024](https://github.com/user-attachments/assets/39b9e38a-87a8-4f8a-805c-4b552ff16476)

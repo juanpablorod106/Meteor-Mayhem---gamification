@@ -32,10 +32,16 @@ enemigos = []
 
 balas = []
 
+ultima_bala = 0
+tiempo_entre_balas = 200
+
 enemigos.append(Enemigos(ANCHO/2, 100))
 
-def crear_bala(): 
-    balas.append(Bala(cubo.rect.centerx,cubo.rect.centery)) 
+def crear_bala():
+    global ultima_bala 
+    if pygame.time.get_ticks() - ultima_bala > tiempo_entre_balas:
+        balas.append(Bala(cubo.rect.centerx,cubo.rect.centery)) 
+        ultima_bala = pygame.time.get_ticks()  
 
 def gestionar_teclas(teclas):   #3.2 Funcion que gestiona el teclado que cambiara la posicion del eje x y y de la instancia Cubo.
     #if teclas[pygame.K_w]:
@@ -91,8 +97,14 @@ while jugando and vida > 0:
             enemigos.remove(enemigo) 
 
         if enemigo.y + enemigo.alto > ALTO:
-            puntos += 1
             enemigos.remove(enemigo)
+            puntos += 1 
+
+        for bala in balas:
+            if pygame.Rect.colliderect(bala.rect, enemigo.rect):
+                enemigos.remove(enemigo)
+                balas.remove(bala)
+                puntos += 1
 
     for bala in balas:
         bala.dibujar(VENTANA)
