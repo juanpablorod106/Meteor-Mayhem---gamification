@@ -96,15 +96,17 @@ while jugando and vida > 0:
             #quit() para cerrar
             enemigos.remove(enemigo) 
 
-        if enemigo.y + enemigo.alto > ALTO:
-            enemigos.remove(enemigo)
-            puntos += 1 
+        if enemigo.y > ALTO:
+            enemigos.remove(enemigo) 
 
         for bala in balas:
             if pygame.Rect.colliderect(bala.rect, enemigo.rect):
-                enemigos.remove(enemigo)
+                enemigo.vida -= 1 
                 balas.remove(bala)
                 puntos += 1
+
+        if enemigo.vida <= 0:
+            enemigos.remove(enemigo)
 
     for bala in balas:
         bala.dibujar(VENTANA)
@@ -114,8 +116,10 @@ while jugando and vida > 0:
     VENTANA.blit(texto_nombre, (1000/2,10))
     VENTANA.blit(texto_puntos, (10,10))  
 
-
     pygame.display.update()
 
+pygame.quit() #13.1.1 Cerramos la pantalla del video juego con la funcion quit del modulo pygame.
 
-quit()
+nombre = input("Introduce tu nombre: ")
+with open('puntuaciones.txt', 'a') as archivo:
+    archivo.write(f"{nombre} - {puntos}\n")

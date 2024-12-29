@@ -203,3 +203,70 @@ for bala in balas:          #10.5.1
 ```
 ### Grafico:
 https://github.com/user-attachments/assets/384e7d4a-29f2-4f06-b068-d629e3a8dd1c
+
+## Test 7 - 28-12-2024
+### Notes
+
+#### 12.1 Vida de los enemigos.
+
+##### 12.1.1 En el bucle de balas hay una condicion de que si en caso de colision tendremos una vida extra.
+```
+puntos += 1                                     #12.1.1
+```
+##### 12.1.2 Se creara otro atributo en la clase de [Enemigos] donde se almacenara la cantidad de vidas.
+```
+class Enemigos:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+        self.ancho = 50
+        self.alto = 50
+        self.velocidad = 5
+        self.color = "purple"
+        self.rect = pygame.Rect(self.x, self.y, self.alto, self.alto)
+        self.vida = 3                           #12.1.2
+```
+##### 12.1.3 Se elimina la linea que elimina enemigos con solo la colision.
+##### 12.1.4 En esta linea se le restara una unidad de vida a cada enemigo al momento de una colision.
+```
+for bala in balas:
+    if pygame.Rect.colliderect(bala.rect, enemigo.rect):
+        ~~enemigos.remove(enemigo)~~        #12.1.3
+        enemigo.vida -= 1                   #12.1.4
+        balas.remove(bala)
+        puntos += 1
+```
+##### 12.1.5 Dentro del bucle de balas crearemos la condicion de que si la vida del enemigo es menor o igual a cero. Se eliminara el enemigo.
+```
+if enemigo.vida <= 0:                       #12.1.5
+    enemigos.remove(enemigo)
+```
+#### 12.2 Eliminando un bug en la condicion de caida de los enemigos.
+##### 12.2.1 Se elimina el alto de la pantalla y que se elimine cuando baje completamente el eje y del objeto.
+```
+if enemigo.y > ALTO:
+    enemigos.remove(enemigo)                #12.2.1 
+```
+### Grafico:
+https://github.com/user-attachments/assets/c80efe6b-a7b1-48ba-8f90-69bd9d249315
+
+## Test 8 - 29-12-2024
+### Notes
+
+#### 13.1 Puntuaciones.
+##### 13.1.1 Cerramos la pantalla del videojuego con la funcion quit del modulo pygame.
+```
+pygame.quit() #13.1.1
+```
+##### 13.1.2 Hacemos una variable que almacenara un input tipo cadena que almacenara una cadena de texto que exigira tu nombre.
+##### 13.1.3 Creamos un archivo para almacenar los datos de las puntuaciones. con la funcion open que tendra como primer argumento el nombre del archivo y segundo argumento la ['a'] que significa append. Esta funcion se almacenara en una variable llamada archivo.
+- Si colocamos['w'] se escribe y se elimina la puntuacion anterior. 
+- Si colocamos ['r'] simplemente lee.
+##### 13.1.4 Accederemos a la variable archivo donde se va a escribir mediante el metodo write que guardara las cadenas almacenadas en el variable nombre y los puntos obtenidos durante la ultima partida.
+```
+nombre = input("Introduce tu nombre: ") #13.1.2
+with open('puntuaciones.txt', 'a') as archivo:  #13.1.3
+archivo.write(f"{nombre} - {puntos}\n") #13.1.4
+```
+### Grafico:
+https://github.com/user-attachments/assets/5746322a-13a3-4438-8ca0-9cca873b5a8e
