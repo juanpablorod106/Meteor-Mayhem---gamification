@@ -242,7 +242,7 @@ if enemigo.vida <= 0:                       #12.1.5
     enemigos.remove(enemigo)
 ```
 #### 12.2 Eliminando un bug en la condicion de caida de los enemigos.
-##### 12.2.1 Se elimina el alto de la pantalla y que se elimine cuando baje completamente el eje y del objeto.
+##### 12.2.1 Se elimina el alto de la pantalla y que se elimine cuando baje completamente el eje "y" del objeto.
 ```
 if enemigo.y > ALTO:
     enemigos.remove(enemigo)                #12.2.1 
@@ -270,3 +270,58 @@ archivo.write(f"{nombre} - {puntos}\n") #13.1.4
 ```
 ### Grafico:
 https://github.com/user-attachments/assets/5746322a-13a3-4438-8ca0-9cca873b5a8e
+
+## Test 9 - 30-12-2024
+### Notes
+
+#### 13.1 Imagenes de personajes.
+
+##### 13.1.1 Creamos un atributo por medio del parametro self, ese atributo almacenara el modulo [pygame] que accedera al modulo [image] que usara la funcion [load] que tendra como argumento una cadena de texto con la direccion especifica del archivo de imagen que es para usar/sustituir el objeto.
+
+#### 13.1.1.1 Imagen del personaje:
+![personaje](https://github.com/user-attachments/assets/6db66fd0-c21b-4404-831c-6576beb4b088)
+
+#### 13.1.1.2 Imagen del Enemigo:
+![Enemigos](https://github.com/user-attachments/assets/5befa2ec-b14d-4ca1-ab93-e2e4322389cf)
+
+#### 13.1.1.3 Imagen de la Bala:
+![Bala](https://github.com/user-attachments/assets/e9b1f414-d4b1-4f07-bd2c-eb4199b994ad)
+
+
+##### 13.1.2 Usamos el mismo atributo que que por medio del modulo [transform] de la libreria [pygame] usaremos la funcion [scale] que tendra como argumentos, el atributo de imagen como primer argumento y las dimensiones del objeto como segundo argumento para ajustar la imagen al objeto.
+
+###### 13.1.3 Ahora debemos dibujar las imagenes sobre los objetos, asì que utilizaremos nuestra variable ventana usando el metodo/la funcion [blit] con el atributo de nuestra imagen como primer argumento y los ejes de posicion del objeto como segundo argumento.
+
+###### 13.1.4 Ahora al iniciar simplemente debemos ocultar los dibujos de nuestros rectangulos para que solo se vean las imagenes.
+```
+class Cubo:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+        self.ancho = 80
+        self.alto = 80
+        self.velocidad = 10
+        self.color = "red"
+        self.rect = pygame.Rect(self.x, self.y, self.alto, self.alto)
+        self.imagen = pygame.image.load("./resources/personaje.png") #13.1.1
+        self.imagen = pygame.transform.scale(self.imagen, (self.ancho,self.alto)) #13.1.2  
+  
+    def dibujar(self,ventana):
+        #pygame.draw.rect(ventana, self.color, self.rect) #13.1.4
+        self.rect = pygame.Rect(self.x, self.y, self.alto, self.alto)
+        ventana.blit(self.imagen,(self.x,self.y)) #13.1.3
+```
+##### Nota, esto se hara con todas las clases de los objetos.
+
+<div style="text-align: center;">
+  <div style="display: inline-block; width: 33%;">
+    <img src="../resources/personaje.png" alt="Imagen del personaje">
+  </div>
+  <div style="display: inline-block; width: 33%;">
+    <img src="../resources/Enemigos.png" alt="Imagen del enemigo">
+  </div>
+  <div style="display: inline-block; width: 33%;">
+    <img src="../resources/Bala.png" alt="Imagen de la bala">
+  </div>
+  <div style="clear: both;"></div>
+</div>

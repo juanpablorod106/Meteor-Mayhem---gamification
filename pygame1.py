@@ -40,7 +40,7 @@ enemigos.append(Enemigos(ANCHO/2, 100))
 def crear_bala():
     global ultima_bala 
     if pygame.time.get_ticks() - ultima_bala > tiempo_entre_balas:
-        balas.append(Bala(cubo.rect.centerx,cubo.rect.centery)) 
+        balas.append(Bala(cubo.rect.centerx - 50,cubo.rect.centery)) 
         ultima_bala = pygame.time.get_ticks()  
 
 def gestionar_teclas(teclas):   #3.2 Funcion que gestiona el teclado que cambiara la posicion del eje x y y de la instancia Cubo.
@@ -97,6 +97,9 @@ while jugando and vida > 0:
             enemigos.remove(enemigo) 
 
         if enemigo.y > ALTO:
+            enemigos.remove(enemigo)
+
+        if enemigo.vida <= 0:
             enemigos.remove(enemigo) 
 
         for bala in balas:
@@ -104,9 +107,6 @@ while jugando and vida > 0:
                 enemigo.vida -= 1 
                 balas.remove(bala)
                 puntos += 1
-
-        if enemigo.vida <= 0:
-            enemigos.remove(enemigo)
 
     for bala in balas:
         bala.dibujar(VENTANA)
@@ -118,7 +118,7 @@ while jugando and vida > 0:
 
     pygame.display.update()
 
-pygame.quit() #13.1.1 Cerramos la pantalla del video juego con la funcion quit del modulo pygame.
+pygame.quit()
 
 nombre = input("Introduce tu nombre: ")
 with open('puntuaciones.txt', 'a') as archivo:
