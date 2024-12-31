@@ -313,15 +313,5 @@ class Cubo:
 ```
 ##### Nota, esto se hara con todas las clases de los objetos.
 
-<div style="text-align: center;">
-  <div style="display: inline-block; width: 33%;">
-    <img src="../resources/personaje.png" alt="Imagen del personaje">
-  </div>
-  <div style="display: inline-block; width: 33%;">
-    <img src="../resources/Enemigos.png" alt="Imagen del enemigo">
-  </div>
-  <div style="display: inline-block; width: 33%;">
-    <img src="../resources/Bala.png" alt="Imagen de la bala">
-  </div>
-  <div style="clear: both;"></div>
-</div>
+### Grafico:
+https://github.com/user-attachments/assets/a9809f04-ea36-4f89-ad2c-2a9bb22940a6
