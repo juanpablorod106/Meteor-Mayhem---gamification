@@ -315,3 +315,83 @@ class Cubo:
 
 ### Grafico:
 https://github.com/user-attachments/assets/a9809f04-ea36-4f89-ad2c-2a9bb22940a6
+
+## Test 10 - 11-01-2025
+### Notes
+
+##### 14.1 Creamos una clase para el item que se utilizara en el juego.
+##### 14.1.1 El Ancho y el Alto buscamos que sea mas pequeño al ser un item.
+##### 14.1.2 Utilizamos esta imagen para mostrar el objeto.
+
+```
+                                            #14.1
+import pygame
+
+class Items:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+        self.ancho = 40                      #14.1.1
+        self.alto = 40
+        self.velocidad = 5
+        self.color = "purple"
+        self.rect = pygame.Rect(self.x, self.y, self.alto, self.alto)
+        self.imagen = pygame.image.load("./resources/item.png")                 #14.1.2
+        self.imagen = pygame.transform.scale(self.imagen, (self.ancho,self.alto))
+        
+    def dibujar(self,ventana):
+        #pygame.draw.rect(ventana, self.color, self.rect)
+        self.rect = pygame.Rect(self.x, self.y, self.alto, self.alto)
+        ventana.blit(self.imagen,(self.x,self.y))
+
+    def movimiento(self):
+        self.y += self.velocidad       
+```
+##### 14.2.1 Creamos la variable/lista de los items.
+##### 14.2.2 Creamos una variable para el tiempo de diferencia de caida entre cada item.
+##### 14.2.3 variable que almacenara la marca de tiempo de la ultima creacion del objeto.
+##### 14.2.4 Ejecutamos la funcion en el bucle while.
+```
+items = [] #14.2.1
+tiempo_entre_items = 5000 #14.2.2
+ultimo_item = 0 #14.2.3
+crear_item() #14.2.4
+```
+##### 14.3 Creamos una funcion para la logica de agregado de un item.
+##### 14.3.1  Globalizamos la variable para que conserve su valor incluso despues de que finalice la ejecucion de la funcion.
+##### 14.3.2 La condicion se desarrolla en. Si el tiempo de ejecucion en milisegundos menos la marca de tiempo de la ultima creacion del objeto es mayor que el tiempo de diferencia de creacion entre cada item entonces:
+##### 14.3.3 Si se cumple la condicion anterior a mi variable lista item se convertira en una instancia del objeto/clase que tendra los siguientes argumentos:
+##### - Como primer argumento vamos a generar una coordenada de posicion "x" aleatorio dentro del ancho de la pantalla. [Items(**random.randint (100, ANCHO-100)**), random.randint(-1000,-100))] 
+##### - Como segundo argumento vamos a generar una coordenada de posicion "y" aleatoria para la posicion inicial del elemento fuera de la pantalla. [Items(random.randint (100, ANCHO-100)), **random.randint(-1000,-100)**)]
+##### 14.3.4 Aqui se actualizara la variable de la marca de tiempo de la ultima creacion del item al tiempo en milisegundos desde que se incializo Pygame. Esto con el objetivo de que marcando la hora de la ultima creacion del objeto para la siguiente ejecucion.
+
+```
+def crear_item(): #14.3 
+    global ultimo_item #14.3.1
+    if pygame.time.get_ticks() - ultimo_item > tiempo_entre_items: #14.3.2 
+        items.append(Items(random.randint(100, ANCHO-100), random.randint(-1000,-100))) #14.3.3     
+        ultimo_item = pygame.time.get_ticks() #14.3.4 
+```
+
+##### 14.4 Crearemos un bucle que de items que dibujara los items en la ventana y ejecutara el metodo de movimiento del objeto.
+
+##### 14.4.1 Dentro del grupo se escribe la condicion de que si el item y el cubo colisionan:
+##### 14.4.2 Se elimina el item.
+##### 14.4.3 Y si en caso de que el tiempo entre cada bala sea mayor a 200 el tiempo entre balas se divide entre dos.
+##### 14.4.4 El tiempo entre balas reducira su intervalo a la mitad.
+##### 14.4.5 En caso de que el item supere el alto de la pantalla va a ser eliminado.
+
+```
+for item in items: #14.4
+        item.dibujar(VENTANA)
+        item.movimiento()
+    if pygame.Rect.colliderect(item.rect, cubo.rect): #14.4.1
+        items.remove(item) #14.4.2
+        if tiempo_entre_balas > 200: #14.4.3 
+            tiempo_entre_balas /= 2 #14.4.4 
+
+        if item.y > ALTO: #14.4.5
+            items.remove(item)
+```
+### Grafico:
+https://github.com/user-attachments/assets/fab7c404-5611-4692-a162-0f0d82820c80

@@ -4,9 +4,9 @@ class Bala:
     def __init__(self,x,y):
         self.x = x
         self.y = y
-        self.ancho = 100
-        self.alto = 40
-        self.velocidad = 20
+        self.ancho = 15
+        self.alto = 50
+        self.velocidad = 40
         self.color = "white"
         self.rect = pygame.Rect(self.x, self.y, self.alto, self.alto)
         self.imagen = pygame.image.load("./resources/Bala.png")
